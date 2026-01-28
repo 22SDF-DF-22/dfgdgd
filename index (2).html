@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目功能</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: linear-gradient(120deg, #f5f9f5, #e8f4e8);
+            background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+
+        .nav-bar {
+            background: linear-gradient(to right, #2E7D32, #1976D2);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(46, 125, 50, 0.2);
+        }
+
+        .nav-item {
+            color: white;
+            font-size: 16px;
+            padding: 8px 25px;
+            cursor: pointer;
+            border-radius: 20px;
+            margin: 0 5px;
+        }
+
+        .nav-item.active {
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            border-bottom: none;
+        }
+
+        .nav-item:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .page-title h2 {
+            color: #2E7D32;
+            font-size: 28px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 1px;
+        }
+
+        .page-title h2::before {
+            content: "🌱";
+            margin-right: 12px;
+            font-size: 32px;
+        }
+
+        .function-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 30px 20px;
+            overflow: visible;
+        }
+
+        .center-circle {
+            width: 240px;
+            height: 240px;
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 50px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(165, 214, 167, 0.4);
+        }
+
+        .center-circle::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #A5D6A7, #81C784);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .center-logo {
+            width: 100px;
+            height: 100px;
+            z-index: 2;
+            object-fit: contain;
+            transform: scale(1);
+        }
+
+        .center-circle:hover .center-logo {
+            transform: scale(1.05);
+        }
+
+        .function-card {
+            width: 300px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 15px;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+            position: relative;
+            z-index: 1;
+            border: 1px solid #e8f4e8;
+        }
+        
+        /* 跳转链接样式 */
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .function-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .function-card h3 {
+            color: #2E7D32;
+            font-size: 20px;
+            margin-bottom: 12px;
+            border-left: 4px solid #4CAF50;
+            padding-left: 10px;
+            font-weight: 600;
+        }
+
+        .function-card p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .function-container .line {
+            position: absolute;
+            background: linear-gradient(to right, #81C784, #4CAF50);
+            height: 2px;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 992px) {
+            .function-container {
+                gap: 20px;
+            }
+            .center-circle {
+                margin: 30px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .function-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .nav-item {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+            .page-title h2 {
+                font-size: 24px;
+            }
+            .function-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            .function-container .line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面标题 -->
+    <div class="page-title">
+        <h2>项目功能</h2>
+    </div>
+
+    <!-- 功能概览 -->
+    <div class="function-container">
+        <!-- 左侧卡片：产品购买（跳转） -->
+        <a href="product-buy.html" class="card-link">
+            <div class="function-card">
+                <h3>产品购买</h3>
+                <p>深加工农产品（附溯源二维码），文化创意产品（二维码附四邑文化故事）</p>
+            </div>
+        </a>
+        
+        <!-- 查询服务（跳转到高德导航） -->
+        <a href="https://amap.com" target="_blank" class="card-link">
+            <div class="function-card">
+                <h3>查询服务</h3>
+                <p>个性化旅游路线，特色化旅游项目推荐，提供民宿、餐饮等吃住行多方面详细信息。</p>
+            </div>
+        </a>
+
+        <!-- 中心圆形 -->
+        <div class="center-circle">
+            <img class="center-logo" src="https://s41.ax1x.com/2026/01/23/pZgrUZd.jpg" alt="项目LOGO">
+        </div>
+
+        <!-- 右侧卡片 -->
+        <div class="function-card">
+            <h3>景点预约服务</h3>
+            <p>旅游项目门票的预约购买，及团购优惠、折扣套餐活动的服务</p>
+        </div>
+        <div class="function-card">
+            <h3>民宿餐饮交通预订</h3>
+            <p>展示民宿、餐饮、交通的预约和用户评价，供游客自由选择时间预订。</p>
+        </div>
+        <!-- 数字智能服务 - 新增跳转百度天气链接 -->
+        <a href="http://www.weather.com.cn" target="_blank" class="card-link">
+            <div class="function-card">
+                <h3>数字智能服务</h3>
+                <p>融入大数据分析，可提供天气、交通等相关方面资讯，同时可根据消费者个人需求，智能推荐吃喝玩乐住行娱的游玩攻略。</p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
