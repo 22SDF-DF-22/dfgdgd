@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品购买 - 工农产品 & 文化创意产品</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "PingFang SC", sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: linear-gradient(120deg, #f5f9f5, #e8f4e8);
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #2E7D32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
+        }
+
+        .back-btn:hover {
+            background: #1B5E20;
+            transform: translateY(-2px);
+        }
+
+        /* 页面标题 */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h2 {
+            color: #2E7D32;
+            font-size: 28px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 1px;
+        }
+
+        .page-title h2::before {
+            content: "🛒";
+            margin-right: 12px;
+            font-size: 32px;
+        }
+
+        /* 核心分栏容器 - 左右对称 */
+        .product-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* 左右列样式（对称） */
+        .product-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+
+        /* 列标题 */
+        .column-title {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #4CAF50;
+        }
+
+        .column-title h3 {
+            color: #2E7D32;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* 产品项 - 图片+二维码布局 */
+        .product-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+            border: 1px solid #e8f4e8;
+        }
+
+        .product-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.15);
+            background: white;
+        }
+
+        /* 产品图片占位 */
+        .product-img-placeholder {
+            width: 120px;
+            height: 120px;
+            background: #f1f8f1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #81C784;
+        }
+
+        .product-img-placeholder p {
+            color: #66BB6A;
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* 二维码占位 */
+        .qrcode-placeholder {
+            width: 80px;
+            height: 80px;
+            background: #f1f8f1;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #81C784;
+            flex-shrink: 0;
+        }
+
+        .qrcode-placeholder p {
+            color: #66BB6A;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* 产品信息区域 */
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h4 {
+            color: #2E7D32;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .product-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .page-title h2 {
+                font-size: 24px;
+            }
+
+            .column-title h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <button class="back-btn" onclick="window.history.back()">
+        ← 返回功能首页
+    </button>
+
+    <!-- 页面标题 -->
+    <div class="page-title">
+        <h2>产品购买</h2>
+    </div>
+
+    <!-- 核心分栏容器 -->
+    <div class="product-container">
+        <!-- 左侧：工农产品 -->
+        <div class="product-column">
+            <div class="column-title">
+                <h3>工农产品</h3>
+            </div>
+
+            <!-- 产品项1 -->
+            <div class="product-item">
+                <div class="product-img-placeholder">
+                    <p>产品图片<br/>（120x120）</p>
+                </div>
+                <div class="product-info">
+                    <h4>特色农产品1</h4>
+                    <p>深加工农产品，溯源可查，绿色无公害</p>
+                </div>
+                <div class="qrcode-placeholder">
+                    <p>溯源二维码<br/>（80x80）</p>
+                </div>
+            </div>
+
+            <!-- 产品项2 -->
+            <div class="product-item">
+                <div class="product-img-placeholder">
+                    <p>产品图片<br/>（120x120）</p>
+                </div>
+                <div class="product-info">
+                    <h4>特色农产品2</h4>
+                    <p>本地特产深加工，品质保障，产地直供</p>
+                </div>
+                <div class="qrcode-placeholder">
+                    <p>溯源二维码<br/>（80x80）</p>
+                </div>
+            </div>
+
+            <!-- 产品项3 -->
+            <div class="product-item">
+                <div class="product-img-placeholder">
+                    <p>产品图片<br/>（120x120）</p>
+                </div>
+                <div class="product-info">
+                    <h4>特色农产品3</h4>
+                    <p>传统工艺制作，保留食材原有风味</p>
+                </div>
+                <div class="qrcode-placeholder">
+                    <p>溯源二维码<br/>（80x80）</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧：文化创意产品 -->
+        <div class="product-column">
+            <div class="column-title">
+                <h3>文化创意产品</h3>
+            </div>
+
+            <!-- 产品项1 -->
+            <div class="product-item">
+                <div class="product-img-placeholder">
+                    <p>产品图片<br/>（120x120）</p>
+                </div>
+                <div class="product-info">
+                    <h4>文创产品1</h4>
+                    <p>四邑文化主题文创，附专属文化故事</p>
+                </div>
+                <div class="qrcode-placeholder">
+                    <p>文化二维码<br/>（80x80）</p>
+                </div>
+            </div>
+
+            <!-- 产品项2 -->
+            <div class="product-item">
+                <div class="product-img-placeholder">
+                    <p>产品图片<br/>（120x120）</p>
+                </div>
+                <div class="product-info">
+                    <h4>文创产品2</h4>
+                    <p>地域特色文创，融合传统与现代设计</p>
+                </div>
+                <div class="qrcode-placeholder">
+                    <p>文化二维码<br/>（80x80）</p>
+                </div>
+            </div>
+
+            <!-- 产品项3 -->
+            <div class="product-item">
+                <div class="product-img-placeholder">
+                    <p>产品图片<br/>（120x120）</p>
+                </div>
+                <div class="product-info">
+                    <h4>文创产品3</h4>
+                    <p>非遗文化衍生品，传承地方文化精髓</p>
+                </div>
+                <div class="qrcode-placeholder">
+                    <p>文化二维码<br/>（80x80）</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
